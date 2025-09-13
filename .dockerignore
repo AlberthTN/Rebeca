@@ -1,0 +1,24 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+venv
+
+# IDE
+.idea
+.vscode
+
+# Logs
+logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
