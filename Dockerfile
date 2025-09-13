@@ -1,12 +1,16 @@
-FROM alberth121484/base:01.00.001
+FROM python:3.10-slim
+LABEL version="01.00.044" description="Rebeca Agent with updated Gemini configuration and Slack token handling"
 
-# Copiar archivos de la aplicación
-COPY .env .env
+WORKDIR /app
+
+# Copiar solo los archivos necesarios
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar el resto de los archivos
 COPY . .
 
-# Configurar permisos
-RUN chmod +x main.py
-RUN chmod 600 .env
+# Asegurar que el directorio de trabajo sea correcto
+WORKDIR /app
 
-# Comando para ejecutar la aplicación
 CMD ["python", "main.py"]
